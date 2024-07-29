@@ -4,8 +4,14 @@ import React from "react";
 
 import Article from "../components/Article";
 
-test("displays the text 'please pass this test'", () => {
+test("displays the text 'please pass this test'", async () => {
   render(<Article />);
+  screen.debug();
 
-  expect(screen.queryByText("please pass this test")).toBeInTheDocument();
+  const textElement = await screen.findByText(/please pass this test/i);
+
+  
+   
+  
+  expect(textElement).toBeInTheDocument();
 });
